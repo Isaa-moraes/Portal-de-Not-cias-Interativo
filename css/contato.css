@@ -1,0 +1,113 @@
+/* ========= RESET ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --berry: #D96A8C;
+  --misty: #F7DDE2;
+  --card: #C98181;
+  --offwhite: #FAFAFA;
+  --graphite: #3A3A3A;
+  --shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+/* ========= BASE ========= */
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--offwhite);
+  color: var(--graphite);
+}
+
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ========= FORM CONTAINER ========= */
+.contato-box {
+  background:white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.contato-box h2 {
+  text-align:center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+/* GRID DO FORMULÁRIO */
+.contato-form {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.contato-form label {
+  font-size: 15px;
+  display:block;
+  margin-bottom: 6px;
+}
+
+.contato-form input[type="text"],
+.contato-form input[type="email"],
+.contato-form input[type="tel"],
+.contato-form select {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 28px;
+  background: var(--card);
+  color:white;
+  font-size: 15px;
+}
+
+.contato-form textarea {
+  width:100%;
+  border-radius: 16px;
+  border:none;
+  min-height: 220px;
+  padding: 14px;
+  background: #DDA4A4;
+  font-size: 15px;
+}
+
+fieldset {
+  border:none;
+}
+
+.checkbox {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  grid-column: 1 / -1;
+}
+
+.contato-form button {
+  grid-column: 1 / -1;
+  justify-self:center;
+  background: var(--berry);
+  border:none;
+  color:white;
+  padding: 12px 26px;
+  border-radius: 18px;
+  font-size: 16px;
+}
+
+/* ========= TABELA ========= */
+.horario {
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.horario th,
+.horario td {
+  border:1px solid #eee;
+  padding: 10px;
+}
+
+.horario th {
+  background: var(--misty);
+}

@@ -1,98 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OCN - Osvaldo City News</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OCN - Osvaldo City News</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
 </head>
 <body>
 
-    <!-- Cabeçalho -->
-    <header>
-        <div class="top-bar">
-            <img src="logo-ocn.png" alt="Logo OCN" class="logo">
-            <h1>OCN</h1>
-            <span class="nome-site">Osvaldo City News</span>
+  <!-- ========== HEADER (fixed) ========== -->
+  <header id="header" class="fixed-header">
+    <div class="top-bar">
+        <div class="logo-wrap">
+            <img src="logo.png" class="logo" alt="Logo OCN">
         </div>
 
-        <nav class="navbar">
-            <ul>
-                <li><a class="active" href="index.html">Notícias</a></li>
-                <li><a href="#saude-mental">Saúde Mental</a></li>
-                <li><a href="#tecnologia">Tecnologia</a></li>
-                <li><a href="#entretenimento">Entretenimento</a></li>
-                <li><a href="#saude">Saúde</a></li>
-                <li><a href="#mundo">Mundo</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
+        <div class="brand-info">
+            <span class="brand-acr">OCN</span>
+            <span class="brand-name">Osvaldo City News</span>
+        </div>
+    </div>
 
-            <div class="search-box">
-                <input type="text" placeholder="Buscar...">
-                <button>🔍</button>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
+    <nav id="menu" class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="noticias.html">Saúde Mental</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#entretenimento">Entretenimento</a></li>
+        <li><a href="#saude">Saúde</a></li>
+        <li><a href="#mundo">Mundo</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <form class="search" role="search" action="#" method="get">
+        <input name="q" type="search" placeholder="Buscar..." aria-label="Buscar">
+        <button aria-label="Pesquisar">🔍</button>
+      </form>
+    </nav>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+
+    <!-- HERO -->
     <section class="hero">
-        <h2>Acompanhe as<br>melhores notícias<br>na OCN!</h2>
+      <div class="hero-content">
+        <h1>Acompanhe as melhores notícias na OCN!</h1>
+        <p class="hero-sub">Informação com leveza, clareza e carinho — feita pra você.</p>
+      </div>
     </section>
 
-    <!-- Categorias de Notícias -->
-    <main class="categorias">
+    <!-- LAYOUT: conteúdo principal + sidebar -->
+    <div class="layout container">
 
-        <section id="saude-mental" class="categoria">
-            <h3>Saúde Mental</h3>
-            <div class="cards">
-                <div class="card">Notícia 1</div>
-                <div class="card">Notícia 2</div>
-                <div class="card">Notícia 3</div>
-            </div>
-        </section>
+      <!-- PRINCIPAL: grid de notícias -->
+      <section class="principal">
+        <h2>Destaques do Dia ☀️</h2>
 
-        <section id="tecnologia" class="categoria">
-            <h3>Tecnologia</h3>
-            <div class="cards">
-                <div class="card">Notícia 1</div>
-                <div class="card">Notícia 2</div>
-                <div class="card">Notícia 3</div>
-            </div>
-        </section>
+        <div class="news-grid">
+          <!-- 6 cards mínimos -->
+          <article class="card" role="article">
+            <img src="./fotos/n1.png" alt="Resumo imagem 1" loading="lazy">
+            <h3><a href="#">Fogo em Hong Kong destrói complexo residencial com 2 mil apartamentos</a></h3>
+            <p>Incêndio atingiu um complexo residencial e diversos blocos do conjunto habitacional foram rapidamente consumidos pelo fogo</p>
+            <a class="read-more" href="https://www.correiobraziliense.com.br/mundo/2025/11/7300470-fogo-em-hong-kong-destroi-complexo-residencial-com-2-mil-apartamentos.html">Ler mais →</a>
+          </article>
 
-        <section id="entretenimento" class="categoria">
-            <h3>Entretenimento</h3>
-            <div class="cards">
-                <div class="card">Notícia 1</div>
-                <div class="card">Notícia 2</div>
-                <div class="card">Notícia 3</div>
-            </div>
-        </section>
+          <article class="card">
+            <img src="./fotos/n2.png" alt="Resumo imagem 2" loading="lazy">
+            <h3><a href="#">Operação na Maré tem 3 mortos, Linha Amarela fechada, criança baleada e sala da UFRJ atingida</a></h3>
+            <p>Equipes de inteligência identificaram a movimentação de traficantes fortemente armados que se preparavam para invadir uma comunidade rival, e deflagraram a operação. </p>
+            <a class="read-more" href="https://g1.globo.com/rj/rio-de-janeiro/noticia/2025/11/26/operacao-tiroteio-zona-norte-rio.ghtml">Ler mais →</a>
+          </article>
 
-        <section id="saude" class="categoria">
-            <h3>Saúde</h3>
-            <div class="cards">
-                <div class="card">Notícia 1</div>
-                <div class="card">Notícia 2</div>
-                <div class="card">Notícia 3</div>
-            </div>
-        </section>
+          <article class="card">
+            <img src="./fotos/n3.png" alt="Resumo imagem 3" loading="lazy">
+            <h3><a href="#">Bolsonaro começa a cumprir pena de 27 anos de prisão em sala da Polícia Federal</a></h3>
+            <p>Bolsonaro foi levado para uma cela especial na Superintendência da PF em Brasília no dia 22</p>
+            <a class="read-more" href="https://www.bbc.com/portuguese/articles/cz0nme79gzzo">Ler mais →</a>
+          </article>
 
-        <section id="mundo" class="categoria">
-            <h3>Mundo</h3>
-            <div class="cards">
-                <div class="card">Notícia 1</div>
-                <div class="card">Notícia 2</div>
-                <div class="card">Notícia 3</div>
-            </div>
-        </section>
+          <article class="card">
+            <img src="./fotos/n4.png" alt="Resumo imagem 4" loading="lazy">
+            <h3><a href="#">Aposentadoria especial para agentes de saúde é aprovada pelo Senado</a></h3>
+            <p>Agentes de saúde e de combate a endemias poderão se aposentar a partir de 50 anos de idade e 20 anos de carreira</p>
+            <a class="read-more" href="https://www12.senado.leg.br/noticias/materias/2025/11/25/aposentadoria-especial-para-agentes-de-saude-e-aprovada-pelo-senado">Ler mais →</a>
+          </article>
 
-    </main>
+          <article class="card">
+            <img src="./fotos/n5.png" alt="Resumo imagem 5" loading="lazy">
+            <h3><a href="#">PF realiza operação contra desvio milionário de verba da Saúde no RS e SP</a></h3>
+            <p>Agentes cumprem 24 mandados de busca e apreensão e dois de prisão preventiva. Vinte pessoas são investigadas, conforme a Polícia Federal.</p>
+            <a class="read-more" href="https://g1.globo.com/rs/rio-grande-do-sul/noticia/2025/11/25/pf-operacao-saude-rs-sp.ghtml">Ler mais →</a>
+          </article>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>© 2025 OCN. Acompanhe todas as notícias ao redor do mundo!</p>
-    </footer>
+          <article class="card">
+            <img src="./fotos/n6.png" alt="Resumo imagem 6" loading="lazy">
+            <h3><a href="#">Zé Felipe e Ana Castela chegam juntos para show em Aparecida de Goiânia</a></h3>
+            <p>Cantores estão divulgando o lançamento de uma nova música "Sua Boca Mente". Previsão de lançamento é para o início de outubro.</p>
+            <a class="read-more" href="https://g1.globo.com/go/goias/noticia/2025/09/28/ze-felipe-e-ana-castela-chegam-juntos-para-show-em-aparecida-de-goiania.ghtml">Ler mais →</a>
+          </article>
+        </div>
+
+        <br>
+
+        <div class="card-box">
+          <h3>Vídeo em destaque</h3>
+          <!-- vídeo incorporado -->
+          <div class="video-wrap">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-Z2l1QCidDo?si=SD1kcdXsebUnPgP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OZVth-Ht_xk?si=NwoFPHG9djS-OrK0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="card-box">
+          <h3>Categorias</h3>
+          <ul class="categories">
+            <li><a href="#saude-mental">Saúde Mental</a></li>
+            <li><a href="#tecnologia">Tecnologia</a></li>
+            <li><a href="#entretenimento">Entretenimento</a></li>
+            <li><a href="#saude">Saúde</a></li>
+            <li><a href="#mundo">Mundo</a></li>
+          </ul>
+        </div>
+
+        <div class="card-box">
+          <h3>Mais lidas</h3>
+          <ol>
+            <li><a href="noticia.html">Matéria mais lida 1</a></li>
+            <li><a href="noticia.html">Matéria mais lida 2</a></li>
+            <li><a href="noticia.html">Matéria mais lida 3</a></li>
+          </ol>
+        </div>
+
+        <div class="card-box">
+          <h3>Newsletter</h3>
+          <form action="#" method="post" class="newsletter">
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <button type="submit">Inscrever</button>
+          </form>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <p class="nomerodape">Osvaldo City News</p>
+    <small>© 2025 OCN — Osvaldo City News. Acompanhe todas as notícias ao redor do mundo!</small>
+  </footer>
 
 </body>
 </html>
