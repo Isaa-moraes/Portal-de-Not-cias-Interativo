@@ -1,20 +1,19 @@
-/* ========= RESET ========= */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --berry: #D96A8C;
-  --misty: #F7DDE2;
-  --card: #C98181;
-  --offwhite: #FAFAFA;
-  --graphite: #3A3A3A;
-  --shadow: 0 6px 20px rgba(0,0,0,0.07);
+/* ===========================
+   RESET
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ========= BASE ========= */
+/* ===========================
+   BASE
+=========================== */
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--offwhite);
-  color: var(--graphite);
+  background: #FAFAFA;
+  color: #3A3A3A;
 }
 
 .container {
@@ -23,91 +22,237 @@ body {
   margin: 0 auto;
 }
 
-/* ========= FORM CONTAINER ========= */
+.contato-wrap {
+  padding-top: 250px;
+}
+
+/* ===========================
+   CAIXA PRINCIPAL
+=========================== */
 .contato-box {
-  background:white;
+  background: #fff;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
 }
 
 .contato-box h2 {
-  text-align:center;
+  text-align: center;
   font-size: 28px;
   margin-bottom: 40px;
+  color: #D96A8C;
 }
 
-/* GRID DO FORMULÁRIO */
+/* ===========================
+   FORMULÁRIO
+=========================== */
 .contato-form {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
 }
 
+/* Label + input alinhados na vertical */
 .contato-form label {
   font-size: 15px;
-  display:block;
   margin-bottom: 6px;
+  display: block;
 }
 
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Inputs */
 .contato-form input[type="text"],
 .contato-form input[type="email"],
 .contato-form input[type="tel"],
 .contato-form select {
   width: 100%;
   padding: 12px 16px;
-  border: none;
-  border-radius: 28px;
-  background: var(--card);
-  color:white;
+  border-radius: 14px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
   font-size: 15px;
+  outline: none;
+  transition: 0.2s;
 }
 
+.contato-form input:focus,
+.contato-form select:focus {
+  border-color: #D96A8C;
+  box-shadow: 0 0 0 3px rgba(217,106,140,0.2);
+}
+
+/* Textarea */
 .contato-form textarea {
-  width:100%;
-  border-radius: 16px;
-  border:none;
-  min-height: 220px;
+  width: 100%;
   padding: 14px;
-  background: #DDA4A4;
+  border-radius: 14px;
+  border: 1px solid #e6e6e6;
+  min-height: 180px;
+  background: #fff;
   font-size: 15px;
+  resize: vertical;
+  outline: none;
+  transition: 0.2s;
+}
+
+.contato-form textarea:focus {
+  border-color: #D96A8C;
+  box-shadow: 0 0 0 3px rgba(217,106,140,0.2);
+}
+
+/* Estilo padrão para TODOS os inputs, incluindo datalist */
+.contato-form input[type="text"],
+.contato-form input[type="email"],
+.contato-form input[type="tel"],
+.contato-form input[list],
+.contato-form select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+  color: #3A3A3A;
+}
+
+/* Placeholder */
+.contato-form input[type="text"]::placeholder,
+.contato-form input[type="email"]::placeholder,
+.contato-form input[type="tel"]::placeholder,
+.contato-form input[list]::placeholder {
+  color: #999;
+}
+
+/* Foco */
+.contato-form input:focus,
+.contato-form select:focus,
+.contato-form input[list]:focus {
+  border-color: #D96A8C;
+  box-shadow: 0 0 0 3px rgba(217,106,140,0.2);
+}
+
+
+/* Radios e checkbox */
+.contato-form .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 fieldset {
-  border:none;
+  border: none;
+  padding: 0;
 }
+
+fieldset legend {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+fieldset label {
+  margin-right: 14px;
+}
+
+
 
 .checkbox {
-  display:flex;
-  align-items:center;
-  gap:8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   grid-column: 1 / -1;
 }
 
+/* BOTÃO COM ANIMAÇÃO */
 .contato-form button {
   grid-column: 1 / -1;
-  justify-self:center;
-  background: var(--berry);
-  border:none;
-  color:white;
-  padding: 12px 26px;
-  border-radius: 18px;
+  justify-self: center;
+  background: #D96A8C;
+  border: none;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 14px;
   font-size: 16px;
+  cursor: pointer;
+  transition: background-color .2s, transform .2s, box-shadow .2s;
 }
 
-/* ========= TABELA ========= */
+.contato-form button:hover {
+  background: #bb5779;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(217,106,140,0.25);
+}
+
+.contato-form button:active {
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
+/* TABELA ESTILIZADA */
 .horario {
-  width:100%;
+  width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  grid-column: 1 / -1;
 }
 
 .horario th,
 .horario td {
-  border:1px solid #eee;
-  padding: 10px;
+  border: 1px solid #f0c6d4;
+  padding: 12px;
+  font-size: 15px;
 }
 
 .horario th {
-  background: var(--misty);
+  background: #F7DDE2;
+  color: #3A3A3A;
+}
+
+/* zebra */
+.horario tbody tr:nth-child(even) {
+  background: #fdf2f5;
+}
+
+/* ALERTA DE SUCESSO / ERRO */
+.alert-box {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Sucesso */
+.alert-success {
+  background: #e6f6eb;
+  border-left: 6px solid #2d7a3f;
+  color: #2d7a3f;
+}
+
+/* Erro */
+.alert-error {
+  background: #fde9ea;
+  border-left: 6px solid #c23a3a;
+  color: #c23a3a;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVO  */
+@media (max-width: 800px) {
+  .contato-form {
+    grid-template-columns: 1fr;
+  }
 }

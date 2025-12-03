@@ -1,20 +1,24 @@
-/* ===== TÍTULO DA ÁREA ===== */
+/* ===============================
+   TÍTULO DA ÁREA
+================================ */
 .titulo-area {
   font-family: "Playfair Display", serif;
   font-size: 32px;
-  color: var(--berry);
+  color: #D96A8C;
   margin-bottom: 24px;
   margin-top: 20px;
 }
 
-/* ===== NOTÍCIA EM DESTAQUE ===== */
+/* ===============================
+   NOTÍCIA EM DESTAQUE
+================================ */
 .destaque {
   display: flex;
   gap: 24px;
   background: white;
   padding: 20px;
   border-radius: 16px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
   margin-bottom: 40px;
 }
 
@@ -26,23 +30,27 @@
 
 .destaque-texto h2 {
   font-size: 24px;
-  color: var(--berry);
+  color: #D96A8C;
+  margin-bottom: 12px;
 }
 
 .btn-leia {
   display: inline-block;
-  margin-top: 12px;
-  background: var(--berry);
+  margin-top: 14px;
+  background: #D96A8C;
   color: white;
-  padding: 8px 14px;
+  padding: 10px 14px;
   border-radius: 10px;
+  transition: .2s;
 }
 
 .btn-leia:hover {
   background: #bb5779;
 }
 
-/* ===== GRID DE NOTÍCIAS ===== */
+/* ===============================
+   GRID DE NOTÍCIAS
+================================ */
 .grid-noticias {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -53,7 +61,13 @@
   background: white;
   border-radius: 18px;
   padding: 14px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  transition: .3s;
+}
+
+.card-noticia:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.10);
 }
 
 .card-noticia img {
@@ -61,15 +75,39 @@
   height: 160px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .card-noticia h3 {
-  color: var(--berry);
+  color: #D96A8C;
   margin-bottom: 6px;
+}
+
+.card-noticia p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
 }
 
 .card-noticia a {
   font-weight: 600;
-  color: var(--berry);
+  color: #D96A8C;
+  transition: .2s;
+}
+
+.card-noticia a:hover {
+  color: #A8C5E6;
+}
+
+/* ===============================
+   RESPONSIVO
+================================ */
+@media (max-width: 800px) {
+  .destaque {
+    flex-direction: column;
+  }
+
+  .destaque img {
+    width: 100%;
+  }
 }

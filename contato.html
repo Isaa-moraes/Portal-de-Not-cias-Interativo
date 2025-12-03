@@ -7,23 +7,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="./css/contato.css">
-  <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="./fotos/logo.png" />
 </head>
 <body>
 
+  <!-- ========== HEADER (fixed) ========== -->
   <header id="header" class="fixed-header">
-    <div class="brand">
-      <img src="logo.png" alt="Logo OCN" class="logo">
-      <div>
-        <span class="brand-acr">OCN</span>
-        <span class="brand-name">Osvaldo City News</span>
-      </div>
+    <div class="top-bar">
+        <div class="logo-wrap">
+            <img src="./fotos/logo.png" class="logo" alt="Logo OCN">
+        </div>
+
+        <div class="brand-info">
+            <span class="brand-acr">OCN</span>
+            <span class="brand-name">Osvaldo City News</span>
+        </div>
     </div>
+
 
     <nav id="menu" class="main-nav">
       <ul>
-        <li><a href="index.html" >Home</a></li>
-        <li><a href="#saude-mental">Saúde Mental</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="noticias.html">Saúde Mental</a></li>
         <li><a href="#tecnologia">Tecnologia</a></li>
         <li><a href="#entretenimento">Entretenimento</a></li>
         <li><a href="#saude">Saúde</a></li>
@@ -42,53 +47,103 @@
     <section class="contato-box">
       <h2>Entre em contato conosco!</h2>
 
-      <form class="contato-form" action="/enviar-contato" method="post" enctype="multipart/form-data" novalidate>
-        <!-- name -->
-        <label for="nome">Nome completo:</label>
-        <input id="nome" name="nome" type="text" required minlength="2" placeholder="Seu nome">
+      <form class="contato-form" action="/enviar-contato" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="nome">Nome completo:</label>
+          <input id="nome" name="nome" type="text" required minlength="2" placeholder="Seu nome">
+        </div>
 
-        <!-- email -->
-        <label for="email">Melhor E-mail:</label>
-        <input id="email" name="email" type="email" required placeholder="seu@exemplo.com">
+        <div class="input-group">
+          <label for="email">Melhor E-mail:</label>
+          <input id="email" name="email" type="email" required placeholder="seu@exemplo.com">
+        </div>
 
-        <!-- cidade/opcional -->
-        <label for="cidade">Cidade e País (opcional):</label>
-        <input id="cidade" name="cidade" type="text" placeholder="Cidade, País">
+        <div class="input-group">
+          <label for="cidade">Cidade e País (opcional):</label>
+          <input id="cidade" name="cidade" type="text" list="lista-cidades" placeholder="Cidade, País">
 
-        <!-- telefone: padrão BR (ex: (11) 91234-5678) -->
-        <label for="telefone">Seu número de telefone (opcional):</label>
-        <input id="telefone" name="telefone" type="tel" placeholder="(11) 91234-5678"
-               pattern="\(?\d{2}\)?\s?\d{4,5}-\d{4}">
+          <datalist id="lista-cidades">
+            <option value="São Paulo, Brasil">
+            <option value="Rio de Janeiro, Brasil">
+            <option value="Curitiba, Brasil">
+            <option value="Belo Horizonte, Brasil">
+            <option value="Lisboa, Portugal">
+            <option value="Porto, Portugal">
+            <option value="Paris, França">
+            <option value="Londres, Reino Unido">
+            <option value="Nova York, Estados Unidos">
+            <option value="Tóquio, Japão">
+          </datalist>
+        </div>
 
-        <!-- assunto -->
-        <label for="assunto">Assunto:</label>
-        <select id="assunto" name="assunto" required>
-          <option value="">-- Escolha um assunto --</option>
-          <option value="sugestao">Sugestão</option>
-          <option value="parceria">Parceria</option>
-          <option value="duvida">Dúvida</option>
-        </select>
+        <div class="input-group">
+          <label for="telefone">Seu número de telefone (opcional):</label>
+          <input id="telefone" name="telefone" type="tel" placeholder="(11) 91234-5678"
+                pattern="\(?\d{2}\)?\s?\d{4,5}-\d{4}">
+        </div>
 
-        <!-- tipo de contato (radio) -->
-        <fieldset>
-          <legend>Tipo de contato:</legend>
-          <label><input type="radio" name="tipo" value="email" checked> E-mail</label>
-          <label><input type="radio" name="tipo" value="telefone"> Telefone</label>
-        </fieldset>
+        <div class="input-group">
+          <label for="assunto">Assunto:</label>
+          <select id="assunto" name="assunto" required>
+            <option value="">-- Escolha um assunto --</option>
+            <option value="sugestao">Sugestão</option>
+            <option value="parceria">Parceria</option>
+            <option value="duvida">Dúvida</option>
+          </select>
+        </div>
 
-        <!-- mensagem -->
-        <label for="mensagem">Comentário / Assunto:</label>
-        <textarea id="mensagem" name="mensagem" rows="8" required minlength="10" placeholder="Escreva aqui..."></textarea>
+        <!-- RADIO -->
+        <div class="input-group">
+          <fieldset>
+            <legend>Tipo de contato:</legend>
+            <label><input type="radio" name="tipo" value="email" checked> E-mail</label>
+            <label><input type="radio" name="tipo" value="telefone"> Telefone</label>
+          </fieldset>
+        </div>
 
-        <!-- arquivo -->
-        <label for="anexo">Anexo (opcional):</label>
-        <input id="anexo" name="anexo" type="file" accept=".pdf,.jpg,.png,.docx">
+        <div class="input-group" style="grid-column: 1 / -1;">
+          <label for="mensagem">Comentário / Assunto:</label>
+          <textarea id="mensagem" name="mensagem" rows="8" required minlength="10" placeholder="Escreva aqui..."></textarea>
+        </div>
 
-        <!-- aceite -->
-        <label class="checkbox">
+        <div class="input-group" style="grid-column: 1 / -1;">
+          <label for="anexo">Anexo (opcional):</label>
+          <input id="anexo" name="anexo" type="file" accept=".pdf,.jpg,.png,.docx">
+        </div>
+
+        <label class="checkbox" style="grid-column:1/-1;">
           <input type="checkbox" name="aceite" required>
           Eu concordo com os <a href="#" target="_blank">termos de uso</a>.
         </label>
+
+
+        <div id="alerta" class="alert-box"></div>
+        <button type="submit">Enviar Mensagem</button>
+        
+        <!-- Pequeno script para validação customizada -->
+        <script>
+          const form = document.querySelector(".contato-form");
+          const alerta = document.getElementById("alerta");
+
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();  
+
+            const telefone = document.getElementById("telefone");
+
+            if (telefone.value && !new RegExp(telefone.pattern).test(telefone.value)) {
+              alerta.className = "alert-box alert-error";
+              alerta.textContent = "Formato de telefone inválido! Use (11) 91234-5678";
+              alerta.style.display = "block";
+              return;
+            }
+
+            alerta.className = "alert-box alert-success";
+            alerta.textContent = "Mensagem enviada com sucesso! Obrigada pelo contato 💖";
+            alerta.style.display = "block";
+
+            form.reset();
+          });
+        </script>
 
         <!-- tabela de horário (exigida na sprint) -->
         <h3>Horário de Atendimento</h3>
@@ -102,26 +157,13 @@
             <tr><td>Domingo</td><td>Fechado</td></tr>
           </tbody>
         </table>
-
-        <button type="submit">Enviar Mensagem</button>
       </form>
     </section>
   </main>
 
   <footer class="site-footer">
-    <small>© 2025 OCN — Osvaldo City News</small>
+    <p class="nomerodape">Osvaldo City News</p>
+    <small>© 2025 OCN — Osvaldo City News. Acompanhe todas as notícias ao redor do mundo!</small>
   </footer>
-
-  <!-- Pequeno script para validação customizada (exemplo) -->
-  <script>
-    document.querySelector('.contato-form').addEventListener('submit', function(e){
-      const telefone = document.getElementById('telefone');
-      if (telefone.value && !new RegExp(telefone.pattern).test(telefone.value)) {
-        e.preventDefault();
-        alert('Formato do telefone inválido. Use (DD) 91234-5678');
-      }
-    });
-  </script>
-
 </body>
 </html>

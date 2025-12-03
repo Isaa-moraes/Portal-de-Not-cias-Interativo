@@ -7,15 +7,15 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="./fotos/logo.png" />
 </head>
 <body>
 
-  <!-- ========== HEADER (fixed) ========== -->
+  <!-- HEADER (fixed) -->
   <header id="header" class="fixed-header">
     <div class="top-bar">
         <div class="logo-wrap">
-            <img src="logo.png" class="logo" alt="Logo OCN">
+            <img src="./fotos/logo.png" class="logo" alt="Logo OCN">
         </div>
 
         <div class="brand-info">
@@ -125,7 +125,14 @@
           <h3>Categorias</h3>
           <ul class="categories">
             <li><a href="#saude-mental">Saúde Mental</a></li>
-            <li><a href="#tecnologia">Tecnologia</a></li>
+            <li class="has-submenu">
+              <a href="#tecnologia">Tecnologia ▾</a>
+              <ul class="submenu">
+                <li><a href="#">Inteligência Artificial</a></li>
+                <li><a href="#">Gadgets e Inovações</a></li>
+              </ul>
+            </li>
+
             <li><a href="#entretenimento">Entretenimento</a></li>
             <li><a href="#saude">Saúde</a></li>
             <li><a href="#mundo">Mundo</a></li>
@@ -141,13 +148,94 @@
           </ol>
         </div>
 
-        <div class="card-box">
-          <h3>Newsletter</h3>
-          <form action="#" method="post" class="newsletter">
-            <input type="email" name="email" placeholder="Seu e-mail" required>
-            <button type="submit">Inscrever</button>
+        <div class="card-box newsletter-box" aria-labelledby="newsletter-title">
+          <h3 id="newsletter-title">Newsletter</h3>
+
+          <p class="newsletter-text">
+            Gostaria de receber diretamente no seu e-mail as melhores notícias do dia? 
+            <strong>Preencha aqui e aproveite!</strong>
+          </p>
+
+          <form class="newsletter-form" action="#" method="post" onsubmit="return newsletterSubmit(event)" novalidate>
+            <label for="newsletter-email" class="sr-only">E-mail</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="Seu melhor e-mail" required aria-required="true">
+            <button type="submit" aria-label="Inscrever-se na newsletter">Inscrever</button>
           </form>
+
+          <p class="newsletter-note" id="newsletter-feedback" aria-live="polite">
+            <script>
+              function newsletterSubmit(event) {
+                event.preventDefault();
+                
+                const input = document.getElementById('newsletter-email');
+                const feedback = document.getElementById('newsletter-feedback');
+
+                // limpa classes antigas
+                feedback.className = 'newsletter-note';
+
+                // valida email
+                if (!input.checkValidity()) {
+                  feedback.innerHTML = '<span class="icon">⚠️</span> Por favor, insira um e-mail válido.';
+                  feedback.classList.add('error', 'show');
+                  input.focus();
+                  return false;
+                }
+
+                // sucesso
+                feedback.innerHTML = '<span class="icon">✔️</span> Obrigada! Em breve você receberá as melhores notícias no seu e-mail 💌';
+                feedback.classList.add('success', 'show');
+
+                // limpa campo
+                input.value = '';
+
+                return false;
+              }
+            </script>
+
+          </p>
         </div>
+
+        <div class="card-box weather-full">
+          <h3>Previsão do Tempo</h3>
+
+          <div class="weather-city">Osvaldo Cruz</div>
+          <p class="weather-rain">Probabilidade de chuva: 80% • 1mm</p>
+
+          <div class="weather-periods">
+            <div class="period">
+              <img src="./fotos/manha.png" alt="Manhã">
+              <span>manhã</span>
+            </div>
+
+            <div class="period">
+              <img src="./fotos/tarde.png" alt="Tarde">
+              <span>tarde</span>
+            </div>
+
+            <div class="period">
+              <img src="./fotos/noite.png" alt="Noite">
+              <span>noite</span>
+            </div>
+
+            <div class="weather-temp">
+              <strong>31° <span>max</span></strong>
+              <strong>23° <span>min</span></strong>
+            </div>
+          </div>
+
+          <p class="weather-info">
+            Informações meteorológicas fornecidas pelo 
+            <strong>Climatempo</strong>.
+          </p>
+
+          <a class="weather-link" 
+            href="https://www.climatempo.com.br/previsao-do-tempo/cidade/281/osvaldocruz-sp"
+            target="_blank"
+            rel="noopener noreferrer">
+            Veja a previsão do Climatempo →
+          </a>
+        </div>
+
       </aside>
 
     </div>
